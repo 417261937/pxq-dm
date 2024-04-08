@@ -4,7 +4,7 @@ name: build readme
 # events but only for the master branch
 on:   # 触发时机
   push:
-    branches: [ master ]  # master有更新
+    branches: [ main ]  # master有更新
   schedule:
     - cron:  '0 */6 * * *'  # 每6小时运行一次
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
