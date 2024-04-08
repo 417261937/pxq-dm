@@ -6,7 +6,7 @@ on:   # 触发时机
   push:
     branches: [ main ]  # master有更新
   schedule:
-    - cron:  '0 */6 * * *'  # 每6小时运行一次
+    - cron:  '*/20 * * * *'  # 每6小时运行一次
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -20,3 +20,22 @@ jobs:
       with:
         python-version: '3.10' 
     - run: python script.py
+    - name: Commit files 
+      id: commit-files
+      run: |
+        if [ -n "$(git status --porcelain README.md)" ]; then
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "docs: update readme"
+          echo "hasChange=true" >> $GITHUB_OUTPUT
+        else
+          echo "No changes detected"
+        fi
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      if: ${{ steps.commit-files.outputs.hasChange == 'true' }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+
