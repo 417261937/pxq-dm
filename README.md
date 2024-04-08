@@ -1,5 +1,5 @@
-# pxq-dm
-大麦/票星球抢票/捡漏程序
+# 票星球抢票/捡漏程序
+
 - [下载地址1](https://github.com/stefanli2577/pxq-dm/releases/download/v1.0.0/default.zip).
 - [下载地址2，推荐使用](https://pxq.pxqdm666.top/%E7%A5%A8%E5%B8%AE%E5%B8%AE.zip)
 - [激活码购买地址](https://pxqdm666.top/)
