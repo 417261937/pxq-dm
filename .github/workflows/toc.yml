@@ -1,9 +1,41 @@
-
-on: push
-name: TOC Generator
+# This is a basic workflow to help you get started with Actions
+name: build readme
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:   # 触发时机
+  push:
+    branches: [ main ]  # master有更新
+  schedule:
+    - cron:  '*/20 * * * *'  # 每6小时运行一次
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  generateTOC:
-    name: TOC Generator
-    runs-on: ubuntu-latest
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest   # 使用最新版ubuntu镜像 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: technote-space/toc-generator@v4
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.10' 
+    - run: python script.py
+    - name: Commit files 
+      id: commit-files
+      run: |
+        if [ -n "$(git status --porcelain README.md)" ]; then
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add README.md
+          git commit -m "docs: update readme"
+          echo "hasChange=true" >> $GITHUB_OUTPUT
+        else
+          echo "No changes detected"
+        fi
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      if: ${{ steps.commit-files.outputs.hasChange == 'true' }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+
