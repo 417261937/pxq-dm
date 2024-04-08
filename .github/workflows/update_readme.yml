@@ -3,8 +3,6 @@ name: build readme
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:   # 触发时机
-  push:
-    branches: [ main ]  # master有更新
   schedule:
     - cron:  '*/20 * * * *'  
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
