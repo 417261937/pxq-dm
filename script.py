@@ -12,3 +12,4 @@ content = re.sub('<!-- BLOG_START -->([\s\S]*?)<!-- BLOG_END -->', f'<!-- BLOG_S
 
 with open('README.md', 'w') as f:
     f.write(content)
+
