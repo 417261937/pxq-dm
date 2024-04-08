@@ -20,11 +20,3 @@ jobs:
       with:
         python-version: '3.10' 
     - run: python script.py
-    - name: Commit and push if changed   # 将README.md更新到仓库
-      run: |
-        git diff
-        git config --global user.email "github[bot]xxx@no-reply.com"
-        git config --global user.name "bot"
-        git add -A
-        git commit -m "Updated Readme" || exit 
-        git push
