@@ -21,7 +21,7 @@ jobs:
       with:
         python-version: '3.10' 
         cache: 'pip' # caching pip dependencies
-    - run: pip install requests
+    - run: pip install -r requirements.txt
     - run: python update_show.py
     - name: Commit files 
       id: commit-files
