@@ -1,4 +1,4 @@
-# 票星球抢票/捡漏程序
+# 票星球抢票/捡漏程序(含同盾Blackbox)
 - [下载地址](https://pxq.pxqdm666.top/%E7%A5%A8%E5%B8%AE%E5%B8%AE.zip)
 - [激活码购买地址](https://pxqdm666.top/)
 
