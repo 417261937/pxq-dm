@@ -1,5 +1,6 @@
-# 票星球抢票/捡漏程序(含同盾Blackbox)
-- [下载地址](https://pxq.pxqdm666.top/%E7%A5%A8%E5%B8%AE%E5%B8%AE.zip)
+# 票星球抢票/捡漏程序
+- 已过同盾Blackbox, 内置代理IP。
+- [下载地址](https://pxq.pxqdm666.top/%E7%A5%A8%E5%B8%AE%E5%B8%AEV2%28%E6%94%AF%E6%8C%81%E4%BB%A3%E7%90%86%29.zip)
 - [激活码购买地址](https://pxqdm666.top/)
 
 <h3><span class="md-plain" style="box-sizing: border-box; margin: 0px; padding: 0px; font-size: 16px;">如何激活软件?</span></h3>
